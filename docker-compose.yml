@@ -1,0 +1,16 @@
+# Ambiente reprodutível: `docker compose up` sobe o JupyterLab pronto para análise.
+services:
+  analise:
+    build: .
+    container_name: lgn-jupyter
+    ports:
+      - "8888:8888"          # JupyterLab no navegador: http://localhost:8888
+    volumes:
+      - .:/work              # projeto montado: notebooks e dados persistem no host
+    working_dir: /work
+    # O yfinance precisa de internet em tempo de execução; o bridge padrão do
+    # Docker já dá acesso à rede, então nada extra é necessário aqui.
+    # A imagem também traz LaTeX (texlive + latexmk): para gerar o PDF do
+    # trabalho, rode dentro do container:
+    #   docker compose exec analise latexmk -pdf -cd trabalho/trabalho.tex
+    restart: unless-stopped

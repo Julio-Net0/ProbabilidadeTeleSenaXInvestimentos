@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+notebooks/.ipynb_checkpoints/
+
+# JupyterLab (lixeira dentro do volume montado)
+.Trash-0/
+
+# LaTeX (auxiliares de compilação; mantém o .pdf e o .tex)
+trabalho/*.aux
+trabalho/*.log
+trabalho/*.out
+trabalho/*.fls
+trabalho/*.fdb_latexmk
+trabalho/*.toc
+trabalho/*.synctex.gz
+
+# SO
+.DS_Store
+Thumbs.db
